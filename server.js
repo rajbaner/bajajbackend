@@ -65,12 +65,19 @@ app.post('/bfhl', (req, res) => {
     }
 });
 
-
+// GET route for /bfhl
 app.get('/bfhl', (req, res) => {
     res.status(200).json({ operation_code: 1 });
 });
 
+// Handle root path
+app.get('/', (req, res) => {
+    res.status(200).send('Welcome to the API. Use /bfhl for the endpoints.');
+});
+
+// Listen on the appropriate port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
